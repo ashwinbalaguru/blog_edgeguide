@@ -1,0 +1,42 @@
+<h1>This is New</h1>
+
+<%= form_for @article, url: articles_path do |f| %>
+<!-- is :article just the form name?? can we name it anything we want  -->
+<!-- :article is just a name instead use @article so that it refers to the object -->
+
+
+
+ <%if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <!-- pluralizer is used to say 1 error or 2 errorS -->
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+	<p>
+	<%= f.label :title%><br>
+	<%= f.text_field :title%>
+	</p>
+
+	<p>
+	<%= f.label :text%><br>
+	<%= f.text_field :text%>
+	</p>
+
+	<p>
+	<%= f.submit%>
+	</p>
+	<%end%>
+
+<%= link_to 'Back', articles_path %>
