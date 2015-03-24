@@ -1,0 +1,2 @@
+# edgeguide
+blog from edgeguide
